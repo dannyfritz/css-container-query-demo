@@ -1,40 +1,6 @@
 <html>
   <body>
-    <script type="module">
-      import { html, css, LitElement } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
-			import birds from "./birds.js";
-			console.log(birds);
-      class SunrunBird extends LitElement {
-        static styles = css`
-          p {
-            color: blue;
-          }
-        `;
-        static properties = {
-          name: { type: String },
-        };
-        constructor() {
-          super();
-          this.name = "Somebody";
-        }
-        render() {
-          return html`<article>
-							<div class="group-photo"></div>	
-							<div class="common-name"></div>	
-							<div class="group"></div>	
-							<div class="latin-name"></div>	
-							<div class="taxonomy-order"></div>	
-							<div class="taxonomy-family"></div>	
-							<div class="habitat"></div>	
-							<div class="food"></div>	
-							<div class="nesting"></div>	
-							<div class="behavior"></div>	
-							<div class="conservation"></div>	
-						</article>`;
-        }
-      }
-      customElements.define("sunrun-bird", SunrunBird);
-    </script>
+    <script type="module" src="./sunrun-bird.js"></script>
     <style>
       ul {
         display: flex;
@@ -45,10 +11,28 @@
 		<main>
 			<ul>
 				<li>
-					<sunrun-bird></sunrun-bird>
+					<sunrun-bird name="wood duck"></sunrun-bird>
 				</li>
 				<li>
-					<sunrun-bird></sunrun-bird>
+					<sunrun-bird name="blue jay"></sunrun-bird>
+				</li>
+				<li>
+					<sunrun-bird name="northern cardinal"></sunrun-bird>
+				</li>
+				<li>
+					<sunrun-bird name="green heron"></sunrun-bird>
+				</li>
+				<li>
+					<sunrun-bird name="white-breasted nuthatch"></sunrun-bird>
+				</li>
+				<li>
+					<sunrun-bird name="black-capped chickadee"></sunrun-bird>
+				</li>
+				<li>
+					<sunrun-bird name="american redstart"></sunrun-bird>
+				</li>
+				<li>
+					<sunrun-bird name="blackburnian warbler"></sunrun-bird>
 				</li>
 			</ul>
 		</main>
