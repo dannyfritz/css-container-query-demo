@@ -24,12 +24,12 @@ Can be done with `ResizeObserver` today, but CSS can do it performantly and with
   .container > .card {
     height: 200px;
   }
-  @container my-container (inline-width < 700px){
+  @container my-container (inline-width < 700px) {
     .card {
       background-color: red;
     }
   }
-  @container my-container (inline-width >= 700px){
+  @container my-container (inline-width >= 700px) {
     .card {
       background-color: blue;
     }
@@ -43,10 +43,13 @@ Can be done with `ResizeObserver` today, but CSS can do it performantly and with
 </div>
 ```
 
-Demo:
-0. `npx lite-server`
-1. Navigate to https://localhost:3000/demo1.html
-1. Navigate to https://localhost:3000/demo2.html
+## Demo
+
+1. Clone git repo: `git clone git@gist.github.com:8fb5d30fd38a33a03100c19e8ad531f0.git`
+1. Run local http server `npx lite-server`
+1. See demos
+   - https://localhost:3000/demo1.html
+   - https://localhost:3000/demo2.html
 
 ## Resources
 
