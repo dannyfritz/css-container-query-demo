@@ -15,22 +15,26 @@
 Gives the ability to query on a container size rather than just the viewport size with `@media`.
 Can be done with `ResizeObserver` today, but CSS can do it performantly and with better developer ergonomics.
 
-```css
-.container {
-  container: inline-size / my-container;
-}
-.container > .card {
-  background-color: red;
-  height: 200px;
-}
-
-@container my-container (insline-width > 700px){
-  .card {
-    background-color: blue;
-  }
-}
-```
 ```html
+<style>
+  .container {
+    container-type: inline-size;
+    container-name: my-container;
+  }
+  .container > .card {
+    height: 200px;
+  }
+  @container my-container (inline-width < 700px){
+    .card {
+      background-color: red;
+    }
+  }
+  @container my-container (inline-width >= 700px){
+    .card {
+      background-color: blue;
+    }
+  }
+</style>
 <div class="container">
   <div class="card"></div>
   <div class="card"></div>
@@ -39,7 +43,10 @@ Can be done with `ResizeObserver` today, but CSS can do it performantly and with
 </div>
 ```
 
-Demo: `npx live-server demo.html`
+Demo:
+0. `npx lite-server`
+1. Navigate to https://localhost:3000/demo1.html
+1. Navigate to https://localhost:3000/demo2.html
 
 ## Resources
 
