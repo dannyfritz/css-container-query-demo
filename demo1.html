@@ -1,9 +1,11 @@
 <html>
 	<body>
 		<style>
+			main {
+				display: flex;
+				flex-wrap: wrap;
+			}
 			.container {
-				container-type: inline-size;
-				container-name: my-container;
 				width: 100%;
 				border: 0.25rem solid black;
 				box-sizing: border-box;
@@ -13,11 +15,20 @@
 			}
 			.card {
 				height: 4rem;
-				background-color: blue;
+			}
+
+			.container {
+				container-type: inline-size;
+				container-name: my-container;
 			}
 			@container my-container (inline-size < 700px) {
 				.card {
 					background-color: red;
+				}
+			}
+			@container my-container (inline-size >= 700px) {
+				.card {
+					background-color: blue;
 				}
 			}
 		</style>

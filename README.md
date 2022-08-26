@@ -7,13 +7,20 @@
 ## Prior Art
 
 - Media Queries `@media`
-- Flexible Layouts with Grid / Flexbox / Float `display: flex`, `display: grid`, `float: left/right`
+- Flexible Layouts with Grid / Flexbox / Float `display: flex`, `display: grid`,
+  `float: left/right`
 - Resize Observer `new ResizeObserver()`
 
 ## CSS Container Query
 
-Gives the ability to query on a container size rather than just the viewport size with `@media`.
-Can be done with `ResizeObserver` today, but CSS can do it performantly and with better developer ergonomics.
+Gives the ability to query on a container size rather than just the viewport
+size with `@media`.
+
+Components will have the ability to determine their own layout and presentation
+based on the width of itself.
+
+Can be done with `ResizeObserver` today, but CSS can do it performantly and
+with better developer ergonomics.
 
 ```html
 <style>
@@ -21,13 +28,9 @@ Can be done with `ResizeObserver` today, but CSS can do it performantly and with
     container-type: inline-size;
     container-name: my-container;
   }
-  .container > .card {
+  .card {
     height: 200px;
-  }
-  @container my-container (inline-width < 700px) {
-    .card {
-      background-color: red;
-    }
+    background-color: red;
   }
   @container my-container (inline-width >= 700px) {
     .card {
@@ -36,9 +39,6 @@ Can be done with `ResizeObserver` today, but CSS can do it performantly and with
   }
 </style>
 <div class="container">
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
   <div class="card"></div>
 </div>
 ```
