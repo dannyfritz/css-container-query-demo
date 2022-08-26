@@ -14,11 +14,16 @@ class SunrunBird extends LitElement {
 
 		/* Base Styles */
     .card {
+			background-color: var(--content-bg-color);
+			color: var(--content-font-color);
       margin: 1rem;
       padding: 1cqi 3cqi;
+			border-radius: 1rem 1rem 0 0;
       border: 1px solid black;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }
     .common-name {
+			font-family: sans-serif;
       font-size: max(1rem, 5cqi);
       text-transform: capitalize;
       text-align: center;
@@ -34,18 +39,18 @@ class SunrunBird extends LitElement {
     .range-image {
       width: 100%;
     }
-    .food,
-    .nesting,
-    .conservation,
-    .behavior,
-    .habitat {
+		.info {
       text-transform: capitalize;
-    }
+		}
 		.description {
+			font-family: sans-serif;
 			margin-top: 0;
 		}
 
 		/* Layout */
+		.card {
+			display: grid;
+		}
     .common-name {
       grid-area: name;
     }
@@ -69,14 +74,13 @@ class SunrunBird extends LitElement {
     }
 
     .card {
-      display: grid;
+      grid-template-columns: 3fr 3fr 2fr;
       grid-template-areas:
         "name name name"
         "latin latin latin"
         "male male group"
         "male male range"
         "info desc desc";
-      grid-template-columns: 3fr 3fr 2fr;
       grid-column-gap: 1cqi;
       grid-row-gap: 1cqi;
     }
@@ -88,11 +92,11 @@ class SunrunBird extends LitElement {
         display: none;
       }
       .card {
+        grid-template-columns: 1fr 2fr;
         grid-template-areas:
           "name name"
           "male male"
           "group info";
-        grid-template-columns: 1fr 2fr;
       }
     }
 
@@ -105,10 +109,10 @@ class SunrunBird extends LitElement {
         display: none;
       }
       .card {
+        grid-template-columns: 1fr;
         grid-template-areas:
           "name"
           "male";
-        grid-template-columns: 1fr;
       }
     }
   `;
