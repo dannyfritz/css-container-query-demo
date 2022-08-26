@@ -1,40 +1,57 @@
 <html>
+	<head>
+		<title>Sales Tribe's Favorite Birds</title>
+	</head>
   <body>
     <script type="module" src="./sunrun-bird.js"></script>
     <style>
+      .selected-bird {
+        display: block;
+        margin: 0 auto;
+        max-width: 50rem;
+      }
       ul {
         display: flex;
         flex-wrap: wrap;
-        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      li {
+        width: 25%;
+      }
+      @media only screen and (max-width: 800px) {
+        li {
+          width: 50%;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        li {
+          width: 100%;
+        }
       }
     </style>
-		<main>
-			<ul>
-				<li>
-					<sunrun-bird name="wood duck"></sunrun-bird>
-				</li>
-				<li>
-					<sunrun-bird name="blue jay"></sunrun-bird>
-				</li>
-				<li>
-					<sunrun-bird name="northern cardinal"></sunrun-bird>
-				</li>
-				<li>
-					<sunrun-bird name="green heron"></sunrun-bird>
-				</li>
-				<li>
-					<sunrun-bird name="white-breasted nuthatch"></sunrun-bird>
-				</li>
-				<li>
-					<sunrun-bird name="black-capped chickadee"></sunrun-bird>
-				</li>
-				<li>
-					<sunrun-bird name="american redstart"></sunrun-bird>
-				</li>
-				<li>
-					<sunrun-bird name="blackburnian warbler"></sunrun-bird>
-				</li>
-			</ul>
-		</main>
+    <main>
+			<h1>Sales Tribe's Favorite Birds</h1>
+      <sunrun-bird class="selected-bird"></sunrun-bird>
+      <ul>
+        <li><sunrun-bird name="american redstart"></sunrun-bird></li>
+        <li><sunrun-bird name="black-capped chickadee"></sunrun-bird></li>
+        <li><sunrun-bird name="blackburnian warbler"></sunrun-bird></li>
+        <li><sunrun-bird name="blue jay"></sunrun-bird></li>
+        <li><sunrun-bird name="green heron"></sunrun-bird></li>
+        <li><sunrun-bird name="northern cardinal"></sunrun-bird></li>
+        <li><sunrun-bird name="white-breasted nuthatch"></sunrun-bird></li>
+        <li><sunrun-bird name="wood duck"></sunrun-bird></li>
+      </ul>
+    </main>
+    <script>
+      const selected = document.querySelector(".selected-bird");
+      document.querySelectorAll("ul sunrun-bird").forEach((e) => {
+        e.addEventListener("click", (event) => {
+          selected.name = event.target.name;
+        });
+      });
+    </script>
   </body>
 </html>
