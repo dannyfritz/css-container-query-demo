@@ -6,6 +6,13 @@ import {
 } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
 import { birds } from "./assets/birds.js";
 class SunrunBird extends LitElement {
+  static properties = {
+    name: { type: String },
+  };
+  constructor() {
+    super();
+    this.name = "No bird selected";
+  }
   static styles = css`
     .container {
       container-type: inline-size;
@@ -73,19 +80,20 @@ class SunrunBird extends LitElement {
       grid-area: desc;
     }
 
-    .card {
-      grid-template-columns: 3fr 3fr 2fr;
-      grid-template-areas:
-        "name name name"
-        "latin latin latin"
-        "male male group"
-        "male male range"
-        "info desc desc";
-      grid-column-gap: 1cqi;
-      grid-row-gap: 1cqi;
+    @container sunrun-bird (inline-size > 600px) {
+			.card {
+				grid-template-columns: 3fr 3fr 2fr;
+				grid-template-areas:
+					"name name name"
+					"latin latin latin"
+					"male male group"
+					"male male range"
+					"info desc desc";
+				grid-column-gap: 1cqi;
+				grid-row-gap: 1cqi;
+			}
     }
-
-    @container sunrun-bird (inline-size <= 600px) {
+    @container sunrun-bird (inline-size <= 600px) and (inline-size > 300px) {
       .description,
       .latin-name,
       .range-image {
@@ -99,7 +107,6 @@ class SunrunBird extends LitElement {
           "group info";
       }
     }
-
     @container sunrun-bird (inline-size <= 300px) {
       .description,
       .group-image,
@@ -116,13 +123,6 @@ class SunrunBird extends LitElement {
       }
     }
   `;
-  static properties = {
-    name: { type: String },
-  };
-  constructor() {
-    super();
-    this.name = "american redstart";
-  }
   render() {
     const data = birds[this.name];
     if (!data) {
